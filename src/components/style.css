@@ -1,0 +1,49 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  background-image: url("/src/images/background.jpg");
+  align-items: center;
+  border: 3px solid green;
+  border-radius: 20px;
+  width: 700px;
+  height: 350px;
+}
+.all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.9);
+  border: 3px solid green;
+  border-radius: 25px;
+  width: 500px;
+  margin-top: 30px;
+  height: 280px;
+  box-shadow: 10px 10px rgb(0, 0, 0, 0.2);
+}
+.header {
+  display: flex;
+  align-self: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Comfortaa";
+  font-size: small;
+}
+select {
+  display: flex;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 30px;
+  font-family: "Karla";
+}
+.select-infos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+}
+
+.final-information {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Karla";
+}
