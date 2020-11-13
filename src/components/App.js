@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner';
 import './style.css';
+import { ChooseBrand } from './ChooseBrand';
+import { ChooseModel } from './ChooseModel';
+import { ChooseYear } from './ChooseYear';
 
 
 function App() {
@@ -61,56 +64,28 @@ function App() {
         </div>
 
         <div className="select-infos">
-          <div className="chose-brand">
-            <select value={brandCode} onChange={(e) => setBrandCode(e.target.value)}>
-              <option value="">Select a brand</option>
 
-              {brands.map(brand => (
-                <option
-                  key={`brandOption-${brand.codigo}`}
-                  value={brand.codigo}
-                >
-                  {brand.nome}
-                </option>
-              ))}
-            </select>
-          </div>
+          <ChooseBrand 
+            value={brandCode}
+            onChange={(e) => setBrandCode(e.target.value)}
+            brands={brands}
+            models={models}
+          />
 
-          <div className="chose-model">
-            {brandCode ? (
-              <select value={modelCode} onChange={(e) => setModelCode(e.target.value)}>
-                <option value="">Select a model</option>
+          <ChooseModel
+          brandCode={brandCode}
+          value={modelCode}
+          models={models}
+          onChange={(e) => setModelCode(e.target.value)}
+          />
 
-                {models.map(model => (
-                  <option 
-                    key={`modelOption-${model.codigo}`} 
-                    value={model.codigo}
-                  >
-                    {model.nome}
-                  </option>
-                ))}
-              </select>
-            ): null}
-          </div>
-
-          <div className="chose-year">
-            {modelCode ? (
-              <select 
-                value={yearCode} 
-                onChange={(e) => setYearCode(e.target.value)}>
-                  <option value="">Select a year</option>
-                  
-                  {years.map(year => (
-                    <option 
-                      key={`yearOption-${year.codigo}`} 
-                      value={year.codigo}
-                    >
-                      {year.nome}
-                    </option>
-                  ))}
-              </select>
-            ): null}
-          </div>
+          <ChooseYear
+          modelCode={modelCode}
+          value={yearCode}
+          onChange={(e) => setYearCode(e.target.value)}
+          years={years}
+          />
+          
         </div>
           
         {yearCode ? (
